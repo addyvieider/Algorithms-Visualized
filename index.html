@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Algorithms Visualized</title>
+    <link rel="stylesheet" href="Styles/Main.css">
+    <link rel="stylesheet" href="Styles/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Styles/balloon/balloon.min.css">
+    <script type="text/javascript" src="Scripts/Menu.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="Scripts/BarChart.js"></script>
+</head>
+<body>
+<nav id="mySideNav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropDown(this)">
+            String Genetic Algorithm
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" style="display: none" id="stringGa">
+            <form action="StringGA.php" method="get">
+                <h4>Target:</h4>
+                <input type="text" value="Hello World" name="target" pattern="[a-zA-Z\s]*" title="No special characters allowed"><br>
+                <h4>Population Size:</h4>
+                <input type="number" min="2" max="1000" value="250" name="popsize"><br>
+                <h4>Mutation Rate:</h4>
+                <input type="number" min="0" max="1" value="0.1" step="0.1" name="mutationrate"><br>
+                <div><input type="submit"><input type="reset"></div>
+            </form>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropDown(this)">
+            Traveling Salesman Genetic Algorithm
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" style="display: none" id="travelingGa">
+            <form action="TravelingSalesMan.php" method="get">
+                <h4>Array:</h4>
+                <input type="number" min="2" max="100" value="15" name="nocities"><br>
+                <h4>Population Size:</h4>
+                <input type="number" min="2" max="1000" value="250" name="popsize"><br>
+                <h4>Mutation Rate:</h4>
+                <input type="number" min="0" max="1" value="0.1" step="0.1" name="mutationrate"><br>
+                <div><input type="submit"><input type="reset"></div>
+            </form>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropDown(this)">
+            Insertion Sort
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" style="display: none" id="insertionSort">
+            <form action="InsertionSorting.php" method="get">
+                <h4>Array:</h4>
+                <input id="insertionInput" type="text" name="array" value="2,6,3,1,7,9,4,5,8"  pattern="([0-9],)*[0-9]" title="Format: int,int,int,..."><br>
+                <input type="radio" name="preset" value="2,6,3,1,7,9,4,5,8" checked onclick="presetChanged(this, 'insertionInput')">Random<br>
+                <input type="radio" name="preset" value="1,2,3,4,5,6,7,8,9" onclick="presetChanged(this, 'insertionInput')">Ascending<br>
+                <input type="radio" name="preset" value="9,8,7,6,5,4,3,2,1" onclick="presetChanged(this, 'insertionInput')">Descending<br>
+                <div><input type="submit"><input type="reset"></div>
+            </form>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropDown(this)">
+            Selection Sort
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" style="display: none" id="selectionSort">
+            <form action="SelectionSorting.php" method="get">
+                <h4>Array:</h4>
+                <input id="selectionInput" type="text" name="array" value="2,6,3,1,7,9,4,5,8" pattern="([0-9],)*[0-9]" title="Format: int,int,int,..."><br>
+                <input type="radio" name="preset" value="2,6,3,1,7,9,4,5,8" checked onclick="presetChanged(this, 'selectionInput')">Random<br>
+                <input type="radio" name="preset" value="1,2,3,4,5,6,7,8,9" onclick="presetChanged(this, 'selectionInput')">Ascending<br>
+                <input type="radio" name="preset" value="9,8,7,6,5,4,3,2,1" onclick="presetChanged(this, 'selectionInput')">Descending<br>
+                <div><input type="submit"><input type="reset"></div>
+            </form>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropDown(this)">
+            Merge Sort
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" style="display: none" id="mergeSort">
+            <form action="MergeSorting.php" method="get">
+                <h4>Array:</h4>
+                <input id="mergeInput" type="text" name="array" value="2,6,3,1,7,9,4,5,8" pattern="([0-9],)*[0-9]" title="Format: int,int,int,..."><br>
+                <input type="radio" name="preset" value="2,6,3,1,7,9,4,5,8" checked onclick="presetChanged(this, 'mergeInput')">Random<br>
+                <input type="radio" name="preset" value="1,2,3,4,5,6,7,8,9" onclick="presetChanged(this, 'mergeInput')">Ascending<br>
+                <input type="radio" name="preset" value="9,8,7,6,5,4,3,2,1" onclick="presetChanged(this, 'mergeInput')">Descending<br>
+                <div><input type="submit"><input type="reset"></div>
+            </form>
+        </div>
+    </div>
+</nav>
+<span id="openbtn" onclick="openNav()">☰ Menu</span>
+
+<div class="home">
+    <h1>Algorithms Visualized</h1>
+    <div>
+        On Algorithms visualized you can display and monitor the behaviour of your favorite Algorithms!
+        <table><tr><td>You have access to following Controls:
+        <div class="controls">
+            <button class="controlButtons" data-balloon-length="medium" data-balloon-pos="up" data-balloon="Click here to perform the next iteration-step">Step</button>
+            <button class="controlButtons" data-balloon-length="medium" data-balloon-pos="up" data-balloon="Click here to start the loop - can be paused">Play</button>
+        </div>
+            <div class="controls">
+                (fast)<input class="controlButtons" type='range' min='1' max='1000' value='500' data-balloon-length="medium" data-balloon-pos="up" data-balloon="Can be used to modify the playing speed">(slow)
+            </div>
+        </td></tr>
+        </table>
+        <h3>Available Algorithms:</h3>
+        <h4 class="home-headers" onclick="openDropDown('stringGa')">String Genetic Algorithm</h4>
+        Genetic Algorithms(GAs) are adaptive heuristic search algorithms that belong to the larger part of evolutionary algorithms.
+        Genetic algorithms are based on the ideas of natural selection and genetics...<br>
+        <a href="https://www.geeksforgeeks.org/genetic-algorithms/" target="_blank">read more</a><br><br>
+
+
+        <h4 class="home-headers" onclick="openDropDown('travelingGa')">Traveling Salesman Genetic Algorithm</h4>
+        Travelling Salesman Problem (TSP): Given a set of cities and distance between every pair of cities, the problem is to find the shortest possible route that visits every city
+        exactly once and returns back to the starting point....<br>
+        <a href="https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/" target="_blank">read more</a><br><br>
+
+        <h4 class="home-headers" onclick="openDropDown('insertionSort')">Insertion Sort</h4>
+        Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands...<br>
+        <a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank">read more</a><br><br>
+
+        <h4 class="home-headers" onclick="openDropDown('selectionSort')">Selection Sort</h4>
+        The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning.
+        The algorithm maintains two subarrays in a given array....<br>
+        <a href="https://www.geeksforgeeks.org/selection-sort/" target="_blank">read more</a><br><br>
+
+        <h4 class="home-headers" onclick="openDropDown('mergeSort')">Merge Sort</h4>
+        Like QuickSort, Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves. ...<br>
+        <a href="https://www.geeksforgeeks.org/merge-sort/" target="_blank">read more</a><br><br>
+    </div>
+</div>
+</body>
+</html>

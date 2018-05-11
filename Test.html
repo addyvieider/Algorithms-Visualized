@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        #id {
+            color: orange;
+            font-size: 20px;
+            text-decoration: overline;
+        }
+
+        li.class {
+            color: red;
+            font-size: 18px;
+        }
+
+        li[list=item] {
+            color: olive;
+            text-decoration: none;
+        }
+
+        ul ul li {
+            font-size: 12px;
+            color: pink;
+            text-decoration: line-through;
+        }
+
+        ul > li {
+            font-size: 16px;
+            color: green;
+        }
+
+        li font {
+            color: yellow;
+        }
+
+        * {
+            color: navy;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><font color="red">A</font></li>
+    <li style="color:blue;" class="class">B</li>
+    <ul>
+        <li class="class" style="color: black;">C</li>
+        <li>D</li>
+        <li style="font-size: 17px;" list="item">E</li>
+    </ul>
+    <li id="id" class="class">F</li>
+    <li color="rose">G</li>
+</ul>
+</body>
+</html>

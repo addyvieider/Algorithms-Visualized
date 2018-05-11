@@ -1,0 +1,201 @@
+body {
+    font: 20px sans-serif;
+}
+
+nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+nav a {
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: lightgray;
+    display: block;
+    transition: 0.3s;
+}
+
+nav a:hover, .dropdown:hover .dropbtn, .home-headers:hover  {
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.dropdown {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+#openbtn {
+    cursor: pointer;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    text-align: left;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    color: lightgray;
+    padding: 8px 8px 8px 16px;
+    background-color: black;
+}
+
+.dropdown-content {
+    background-color: lightgray;
+    width: 100%;
+}
+
+.dropdown-content form {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    color: dodgerblue;
+}
+
+h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+input {
+    margin: 0px 5px 5px 0px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 16px;
+}
+
+.controls button,
+.controls input {
+    margin: 5px 5px 5px 5px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    min-height: 400px;
+}
+
+.home h1 {
+    display: block;
+    margin: 20px auto 20px auto;
+}
+
+.home > div {
+    width: 60%;
+    margin: auto;
+}
+
+.home table {
+    border: solid gray 1px;
+    width: 100%;
+    margin: 20px 0px 40px 0px;
+}
+
+.content-canvas {
+    text-align: center;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+text {
+    font: 10px sans-serif;
+    text-anchor: middle;
+}
+
+#currentBest {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0px 0px 5px 0px;
+}
+
+.explanation {
+    width: 50%;
+    margin: auto;
+    background-color: lightyellow;
+}
+
+.explanation h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.explanation ul {
+    list-style-type: none;
+    padding-right: 40px;
+}
+
+canvas {
+    border: solid black 1px;
+}
+
+#chart {
+    width: 600px;
+}
+
+#container {
+    width: 50%;
+}
+
+@keyframes divisionToLeft {
+    from {margin: 5px 0px 5px auto;}
+    to {margin: 5px auto 5px auto;}
+}
+
+@keyframes divisionToRight {
+    from {margin: 5px auto 5px 0px;}
+    to {margin: 5px auto 5px auto;}
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: dodgerblue;
+}
+
+.home-headers {
+    background-color: lightgray;
+}
